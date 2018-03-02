@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Job_Tracker2.Models.Job>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Welcome to your Job Tracker</h2>
+<p>Good luck finding a job.  No, seriously, good luck...<p>
+
+    <div asp-controller="Jobs" asp-action="Inxex">Tracked Jobs:</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contact)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Company.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact.Email)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
